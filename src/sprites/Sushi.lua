@@ -6,6 +6,8 @@ class("Sushi", { side = LEFT_BAND, state = S_ON_BAND }).extends(gfx.sprite)
 
 local paw
 local index
+local loveReaction
+local sparkReaction
 
 function Sushi:init(i)
     self.index = i
@@ -20,6 +22,8 @@ function Sushi:init(i)
         self.side = LEFT_BAND
         self.x = LEFT_BAND_X_START
     end
+    self.loveReaction = Celebration(Assets.img.love)
+    self.sparkReaction = Celebration(Assets.img.spark)
 end
 
 function Sushi:reset()
@@ -60,7 +64,14 @@ function Sushi:update()
     elseif self.state == S_CAUGHT then
         if self.paw.y > 290 then -- at the bottom of the screen scores
             self:reset()
-            Score.update(SUSHI_SCORE[self.index])
+            self.paw.sushi = nil
+            local scoreInfo = Score.update(self.index)
+            if scoreInfo.combo then
+                self.sparkReaction:show(self.paw.x, 190)
+            else
+                self.loveReaction:show(self.paw.x, 190)
+            end
+
 
             local newScore, _, pieces = Score.read()
 

@@ -7,7 +7,9 @@ Assets = {
             gfx.image.new("assets/maki"),
             gfx.image.new("assets/nigiri"),
             gfx.image.new("assets/onigiri")
-        }
+        },
+        love = gfx.imagetable.new("assets/love"),
+        spark = gfx.imagetable.new("assets/spark")
     },
     band = "assets/band",
     sushi = "assets/MakiSprite",

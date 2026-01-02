@@ -6,6 +6,7 @@ local catLifeImg <const> = gfx.image.new(Assets.catLife)
 local lives = table.create(3, 0)
 local remainingLives = 3
 local topScore = 0
+local currentCombo = { index = 0, count = 0 }
 
 Score = {}
 
@@ -24,6 +25,7 @@ function Score:new()
         lives[i]:moveTo(30 * i, 15)
     end
     remainingLives = 3
+    currentCombo = { index = 0, count = 0 }
     return self
 end
 
@@ -31,9 +33,21 @@ function Score.read()
     return score, remainingLives, pieces
 end
 
-function Score.update(increment)
-    score += increment
+function Score.update(index) -- returns score info (currently only informs if it's a combo or not)
+    score += SUSHI_SCORE[index]
     pieces += 1
+    if (currentCombo.index == index) then
+        currentCombo.count += 1
+        if currentCombo.count == 3 then
+            score += SUSHI_SCORE[index] * 2
+            currentCombo.count = 0
+            return { combo = true }
+        end
+    else
+        currentCombo.index = index
+        currentCombo.count = 1
+    end
+    return { combo = false }
 end
 
 function Score.reset()
@@ -43,6 +57,7 @@ function Score.reset()
     for i = 1, 3 do
         lives[i]:add()
     end
+    currentCombo = { index = 0, count = 0 }
 end
 
 function Score.hit()

@@ -20,6 +20,11 @@ GLOBAL_GAME_STATE = GAME_STOP
 -- main screen
 local homeScreen = HomeScreen()
 
+
+local love = gfx.imagetable.new("assets/love")
+assert(love)
+
+
 -- game elements
 local rightBand = Band(gfx.kImageUnflipped)
 rightBand:moveTo(RIGHT_BAND_X_START + BAND_LENGTH / 2.5, BAND_Y)
