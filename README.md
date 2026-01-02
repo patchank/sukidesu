@@ -1,0 +1,1 @@
+# sukidesu, a silly game by patchank

@@ -1,0 +1,9 @@
+name=sukidesu
+author=patchank
+description=a silly cat game
+bundleID=com.patchank.sukidesu
+version=0.1a
+buildNumber=1
+imagePath=launcher/img
+launchSoundPath=assets/meow.wav
+contentWarning=This game is too silly

@@ -1,0 +1,7 @@
+import "sprites/Band"
+import "sprites/Sushi"
+import "sprites/SushiFactory"
+import "sprites/Cat"
+import "sprites/Paw"
+import "sprites/Itamae"
+import "sprites/Shuriken"
