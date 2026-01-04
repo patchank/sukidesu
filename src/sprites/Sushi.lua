@@ -68,10 +68,10 @@ function Sushi:update()
             local scoreInfo = Score.update(self.index)
             if scoreInfo.combo then
                 self.sparkReaction:show(self.paw.x, 190)
+                Assets.sounds.fanfare:play(1)
             else
                 self.loveReaction:show(self.paw.x, 190)
             end
-
 
             local newScore, _, pieces = Score.read()
 

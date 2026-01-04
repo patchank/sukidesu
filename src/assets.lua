@@ -26,5 +26,8 @@ Assets = {
     meowSound = "assets/meow.wav",
     shooSound = "assets/shoo.wav",
     welcomeMusic = "assets/sakura",
-    playMusic = "assets/backgroundMusic2"
+    playMusic = "assets/backgroundMusic2",
+    sounds = {
+        fanfare = playdate.sound.sampleplayer.new("assets/tada-fanfare-a-6313") -- Sound Effect by freesound_community from Pixabay
+    }
 }
